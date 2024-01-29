@@ -1,3 +1,15 @@
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title: 'MCNC build'
+pubDate: 2022-07-01
+description: 'This is the first post of my new Astro blog.'
+author: 'Astro Learner'
+image:
+    url: 'https://docs.astro.build/assets/full-logo-light.png'
+    alt: 'The full Astro logo.'
+tags: ["astro", "blogging", "learning in public"]
+---
+
 Proxxon MF70 CNC
 with alloys use cutting fluid or oil
 [Proxxon MICRO Frézka MF 70 s CNC přípravou (elespo.cz)](https://www.elespo.cz/proxxon-micro-frezka-mf-70-s-cnc-pripravou)
