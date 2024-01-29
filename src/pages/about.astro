@@ -1,5 +1,25 @@
 ---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Hamburger from '../components/Hamburger.astro';
+import Footer from '../components/Footer.astro';
 
+const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Sarah",
+  country: "Canada",
+  occupation: "Technical Writer",
+  hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const skillColor = "navy";
 ---
 
 <html lang="en">
@@ -8,13 +28,53 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+		<style>
+			h1 {
+			  color: purple;
+			  font-size: 4rem;
+			}
+			.skill {
+				color: green;
+				color: var(--skillColor);
+				font-weight: bold;
+			}
+		  </style>
 	</head>
 	<body>
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/content/">Content</a>
+		<Hamburger />
+		<Navigation />
 		<h1>Astro</h1>
 		<p>This is about page.</p>
+
+		<ul>
+			<li>My name is {identity.firstName}.</li>
+			<li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+			{identity.hobbies.length >= 2 &&
+			  <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+			}
+		  </ul>
+
+
+		{happy && <p>I am happy to be learning Astro!</p>}
+
+		{finished && <p>I finished this tutorial!</p>}
+
+		{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+
+		<p>My skills are:</p>
+		<ul>
+		{skills.map((skill) => <li class="skill">{skill}</li>)}
+		</ul>
+
+		<div id="menu">
+			<a href="/posts/cnc/">CNC</a>
+			<a href="/posts/arduino/">Arduino</a>
+			<a href="/posts/primers/">Primery</a>
+		</div>
+		<script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
+	<Footer />
 </html>
