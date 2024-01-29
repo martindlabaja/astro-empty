@@ -1,13 +1,11 @@
 ---
-import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "About";
 const identity = {
-	firstName: "Sarah",
-	country: "Canada",
-	occupation: "Technical Writer",
-	hobbies: ["photography", "birdwatching", "baseball"],
+	firstName: "Martin",
+	country: "Czech Republic",
+	occupation: "Artist / developer / amateur science",
+	hobbies: ["photography", "engineering", "biology"],
 };
 const happy = true;
 const finished = false;
@@ -16,28 +14,8 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 const skillColor = "navy";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<style>
-			h1 {
-				color: purple;
-				font-size: 4rem;
-			}
-			.skill {
-				color: green;
-				color: var(--skillColor);
-				font-weight: bold;
-			}
-		</style>
-	</head>
-	<body>		
-		<Header />		
-		<p>This is about page.</p>
+<BaseLayout pageTitle={pageTitle}>
+
 		<ul>
 			<li>My name is {identity.firstName}.</li>
 			<li>
@@ -69,9 +47,4 @@ const skillColor = "navy";
 			{skills.map((skill) => <li class="skill">{skill}</li>)}
 		</ul>
 		
-		<Footer />
-		<script>
-			import "../scripts/menu.js";
-		</script>		
-	</body>	
-</html>
+</BaseLayout>		
